@@ -6,7 +6,7 @@ const server = express()
 const PORT = require('./config.json').PORT || 5000;
 const config = require('./config.json')
 
-server.use('/static', path.join(__dirname, 'static'))
+server.use( express.static('/static', path.join(__dirname, 'static')) )
 
 server.listen(PORT, ()=> console.log('Aazadi :: Started ::', 'PORT', config.PORT))
 
