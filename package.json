@@ -19,6 +19,6 @@
     "express-fileupload": "^1.1.4",
     "firebase": "^6.0.2",
     "googleapis": "^40.0.0",
-    "mongo": "^0.1.0"
+    "mongodb": "^3.2.6"
   }
 }
