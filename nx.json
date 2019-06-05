@@ -26,17 +26,17 @@
     "admin-e2e": {
       "tags": []
     },
-    "backend-server": {
+    "server": {
       "tags": ["backend"]
     },
-    "backend-broadcaster": {
+    "broadcaster": {
       "tags": ["backend"]
     },
     "gmailer": {
-      "tags": []
+      "tags": ["library"]
     },
     "gsheets": {
-      "tags": []
+      "tags": ["library"]
     }
   }
 }
