@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@aazadi/gmailer": ["libs/gmailer/src/index.ts"],
+      "@aazadi/gsheets": ["libs/gsheets/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

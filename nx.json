@@ -31,6 +31,12 @@
     },
     "backend-broadcaster": {
       "tags": ["backend"]
+    },
+    "gmailer": {
+      "tags": []
+    },
+    "gsheets": {
+      "tags": []
     }
   }
 }

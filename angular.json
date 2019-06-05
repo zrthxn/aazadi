@@ -426,6 +426,74 @@
           }
         }
       }
+    },
+    "gmailer": {
+      "projectType": "library",
+      "root": "libs/gmailer",
+      "sourceRoot": "libs/gmailer/src",
+      "prefix": "aazadi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/gmailer/tsconfig.lib.json",
+            "project": "libs/gmailer/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/gmailer/tsconfig.lib.json",
+              "libs/gmailer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/gmailer/jest.config.js",
+            "tsConfig": "libs/gmailer/tsconfig.spec.json",
+            "setupFile": "libs/gmailer/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "gsheets": {
+      "projectType": "library",
+      "root": "libs/gsheets",
+      "sourceRoot": "libs/gsheets/src",
+      "prefix": "aazadi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/gsheets/tsconfig.lib.json",
+            "project": "libs/gsheets/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/gsheets/tsconfig.lib.json",
+              "libs/gsheets/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/gsheets/jest.config.js",
+            "tsConfig": "libs/gsheets/tsconfig.spec.json",
+            "setupFile": "libs/gsheets/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
