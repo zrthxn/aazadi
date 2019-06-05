@@ -319,9 +319,9 @@
         }
       }
     },
-    "backend-server": {
-      "root": "apps/backend/server",
-      "sourceRoot": "apps/backend/server/src",
+    "server": {
+      "root": "backend/server",
+      "sourceRoot": "backend/server/src",
       "projectType": "application",
       "prefix": "backend-server",
       "schematics": {},
@@ -329,10 +329,10 @@
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/backend/server",
-            "main": "apps/backend/server/src/main.ts",
-            "tsConfig": "apps/backend/server/tsconfig.app.json",
-            "assets": ["apps/backend/server/src/assets"]
+            "outputPath": "dist/backend/server",
+            "main": "backend/server/src/main.ts",
+            "tsConfig": "backend/server/tsconfig.app.json",
+            "assets": ["backend/server/src/assets"]
           },
           "configurations": {
             "production": {
@@ -341,8 +341,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/backend/server/src/environments/environment.ts",
-                  "with": "apps/backend/server/src/environments/environment.prod.ts"
+                  "replace": "backend/server/src/environments/environment.ts",
+                  "with": "backend/server/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -358,8 +358,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/backend/server/tsconfig.app.json",
-              "apps/backend/server/tsconfig.spec.json"
+              "backend/server/tsconfig.app.json",
+              "backend/server/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -367,15 +367,15 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/backend/server/jest.config.js",
-            "tsConfig": "apps/backend/server/tsconfig.spec.json"
+            "jestConfig": "backend/server/jest.config.js",
+            "tsConfig": "backend/server/tsconfig.spec.json"
           }
         }
       }
     },
-    "backend-broadcaster": {
-      "root": "apps/backend/broadcaster",
-      "sourceRoot": "apps/backend/broadcaster/src",
+    "broadcaster": {
+      "root": "backend/broadcaster",
+      "sourceRoot": "backend/broadcaster/src",
       "projectType": "application",
       "prefix": "backend-broadcaster",
       "schematics": {},
@@ -383,10 +383,10 @@
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/backend/broadcaster",
-            "main": "apps/backend/broadcaster/src/main.ts",
-            "tsConfig": "apps/backend/broadcaster/tsconfig.app.json",
-            "assets": ["apps/backend/broadcaster/src/assets"]
+            "outputPath": "dist/backend/broadcaster",
+            "main": "backend/broadcaster/src/main.ts",
+            "tsConfig": "backend/broadcaster/tsconfig.app.json",
+            "assets": ["backend/broadcaster/src/assets"]
           },
           "configurations": {
             "production": {
@@ -395,8 +395,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/backend/broadcaster/src/environments/environment.ts",
-                  "with": "apps/backend/broadcaster/src/environments/environment.prod.ts"
+                  "replace": "backend/broadcaster/src/environments/environment.ts",
+                  "with": "backend/broadcaster/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -412,8 +412,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/backend/broadcaster/tsconfig.app.json",
-              "apps/backend/broadcaster/tsconfig.spec.json"
+              "backend/broadcaster/tsconfig.app.json",
+              "backend/broadcaster/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -421,8 +421,8 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/backend/broadcaster/jest.config.js",
-            "tsConfig": "apps/backend/broadcaster/tsconfig.spec.json"
+            "jestConfig": "backend/broadcaster/jest.config.js",
+            "tsConfig": "backend/broadcaster/tsconfig.spec.json"
           }
         }
       }
