@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
 
-import App from './app';
+import Radio from './Radio';
 
-describe('App', () => {
+describe('Radio', () => {
   afterEach(cleanup);
 
   it('should render successfully', () => {
-    const { baseElement } = render(<App />);
+    const { baseElement } = render(<Radio />);
     expect(baseElement).toBeTruthy();
   });
 
   it('should have a greeting as the title', () => {
-    const { getByText } = render(<App />);
+    const { getByText } = render(<Radio />);
     expect(getByText('Welcome to radio!')).toBeTruthy();
   });
 });

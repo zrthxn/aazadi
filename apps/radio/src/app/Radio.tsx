@@ -1,32 +1,25 @@
 import React, { Component } from 'react';
-
-import styled from 'sass';
-
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-const StyledApp = styled.div``;
+import styled from 'sass';
+import './Global.scss';
 
-const Header = styled.header`
-  text-align: center;
-`;
-
-export class App extends Component {
+export default class Radio extends Component {
   render() {
     return (
       <Router>
-        <StyledApp>
           <ul>
             <li>
               <Link to="/">Root</Link>
             </li>
           </ul>
-          <Header>
+          <header>
             <h1>Welcome to radio!</h1>
             <img
               width="450"
               src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
             />
-          </Header>
+          </header>
           <p>
             This is a React app built with <a href="https://nx.dev">Nx</a>.
           </p>
@@ -51,10 +44,7 @@ export class App extends Component {
             exact
             render={() => <div>This is the root route.</div>}
           />
-        </StyledApp>
       </Router>
     );
   }
 }
-
-export default App;
