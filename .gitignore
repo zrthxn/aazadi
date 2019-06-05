@@ -6,9 +6,11 @@
 /out-tsc
 /coverage
 
+# Nested Git repos
+*/.git
+
 # dependencies
 /node_modules
-
 
 # IDE - VSCode
 .vscode/*
