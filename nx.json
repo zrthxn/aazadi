@@ -37,6 +37,9 @@
     },
     "gsheets": {
       "tags": ["library"]
+    },
+    "radio-interfaces": {
+      "tags": []
     }
   }
 }

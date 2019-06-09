@@ -494,6 +494,40 @@
         }
       },
       "schematics": {}
+    },
+    "radio-interfaces": {
+      "projectType": "library",
+      "root": "libs/radio-interfaces",
+      "sourceRoot": "libs/radio-interfaces/src",
+      "prefix": "aazadi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/radio-interfaces/tsconfig.lib.json",
+            "project": "libs/radio-interfaces/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/radio-interfaces/tsconfig.lib.json",
+              "libs/radio-interfaces/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/radio-interfaces/jest.config.js",
+            "tsConfig": "libs/radio-interfaces/tsconfig.spec.json",
+            "setupFile": "libs/radio-interfaces/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

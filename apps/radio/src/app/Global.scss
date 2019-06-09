@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap:100,200,300,400,500,600,700,800,900');
+
+$white: #fff;
+$home-bg: linear-gradient(#000,#dd0000);
+
+* {
+  box-sizing: border-box;
+  font-family: Lato, sans-serif;
+  text-rendering: geometricPrecision;
+  image-rendering: crisp-edges;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+body {
+  margin: 0;
+  color: $white;
+  text-align: center;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  padding: 1em;
+  background: $home-bg;
+}

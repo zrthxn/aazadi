@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 
+import '../Global.scss'
+
 export default class Header extends Component {
   render() {
     return (
-      <div>
-        
-      </div>
+      <header>
+        <div>
+          
+        </div>
+      </header>
     )
   }
 }
