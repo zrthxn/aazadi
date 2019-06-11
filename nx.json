@@ -15,13 +15,13 @@
       "tags": ["frontend"]
     },
     "radio": {
-      "tags": ["radiolib"]
+      "tags": ["radio"]
     },
     "radio-e2e": {
       "tags": []
     },
     "admin": {
-      "tags": ["radio"]
+      "tags": ["admin"]
     },
     "admin-e2e": {
       "tags": []
