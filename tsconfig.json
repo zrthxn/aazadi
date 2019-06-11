@@ -18,7 +18,9 @@
     "paths": {
       "@aazadi/gmailer": ["libs/gmailer/src/index.ts"],
       "@aazadi/gsheets": ["libs/gsheets/src/index.ts"],
-      "@aazadi/radio-interfaces": ["libs/radio-interfaces/src/index.ts"]
+      "@aazadi/radio-interfaces": ["libs/radio-interfaces/src/index.ts"],
+      "@aazadi/radio": ["libs/radio/src/index.ts"],
+      "@aazadi/libs/radio": ["libs/libs/radio/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

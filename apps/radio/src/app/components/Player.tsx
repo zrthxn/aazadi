@@ -7,7 +7,7 @@ import '../Global.scss'
 // Components
 import Recommender from './Recommender'
 
-import { PlayerProps } from '@aazadi/radio-interfaces'
+import { PlayerProps } from '@aazadi/radio'
 
 export default class Player extends Component<PlayerProps> {
   state = {
@@ -19,7 +19,7 @@ export default class Player extends Component<PlayerProps> {
       title: '',
       subtitle: '',
       artURL: '',
-    }    
+    }
   }
 
   componentDidMount() {

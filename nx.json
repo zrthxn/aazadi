@@ -15,7 +15,7 @@
       "tags": ["frontend"]
     },
     "radio": {
-      "tags": ["radio"]
+      "tags": ["radiolib"]
     },
     "radio-e2e": {
       "tags": []
@@ -31,15 +31,6 @@
     },
     "broadcaster": {
       "tags": ["backend"]
-    },
-    "gmailer": {
-      "tags": ["library"]
-    },
-    "gsheets": {
-      "tags": ["library"]
-    },
-    "radio-interfaces": {
-      "tags": []
     }
   }
 }
