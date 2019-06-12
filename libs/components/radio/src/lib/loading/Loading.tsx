@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
-/* tslint:disable:no-empty-interface */
-export interface LoadingProps {}
+export interface LoadingProps {
+  timeout: number
+}
 
 export class Loading extends Component<LoadingProps> {
   render() {

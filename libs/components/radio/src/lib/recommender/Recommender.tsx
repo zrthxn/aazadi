@@ -5,6 +5,7 @@ import './Recommender.scss'
 
 import TrackListItem from '../track-list-item/TrackListItem'
 import Loading from '../loading/Loading'
+import PlayerContext from '../player-context/PlayerContext';
 
 export interface RecommenderProps {
   context: {
@@ -21,6 +22,7 @@ export interface RecommenderProps {
 export class Recommender extends Component<RecommenderProps> {
   state = {
     contextual: false,
+    recommendationsTitle: 'Recommender',
     contextState: {
       context: {
         contextType: 'none',
@@ -31,9 +33,15 @@ export class Recommender extends Component<RecommenderProps> {
       listStyle: 'vertical',
       omitTracks: null,
     },
-    loadedRecommendationList: false,
+    loadedRecommendationList: true,
     recommendations: [
       // From the DB
+      {
+        title: 'Episode 1',
+        subtitle: 'Lets go',
+        rating: 10000,
+        trackId: 'ABCDEF'
+      }
     ]
   }
 
@@ -65,62 +73,75 @@ export class Recommender extends Component<RecommenderProps> {
       console.log('Relevent Tracks', this.state.contextState.context)
     }
 
-    this.setState({
-      recommendations: [
-
-      ]
-    })
+    // this.setState({
+    //   recommendations: [
+        
+    //   ]
+    // })
   }
 
   render() {
-    function listBuilder() {
-      const { listStyle } = this.state.contextState
-      const listRecommedations = this.state.recommendations.map((track, index)=>{
-        return (
-          <TrackListItem
-              title={ track[index].title }
-              subtitle={ track[index].subtitle }
-              rating={ track[index].rating }
-              trackId={ track[index].trackId }
-              style={ listStyle }
-              onSelect={(trackId)=>{
-                // Switch track somehow
-                this.props.changeTrack(trackId)
-              }}
-            />
-        )
-      })
+    const { listStyle } = this.state.contextState
+    const listRecommedations = this.state.recommendations.map((track, index)=>{
+      return (
+        <TrackListItem
+            key={ index }
+            title={ this.state.recommendations[index].title }
+            subtitle={ this.state.recommendations[index].subtitle }
+            rating={ this.state.recommendations[index].rating }
+            trackId={ this.state.recommendations[index].trackId }
+            style={ listStyle }
+            onSelect={(trackId)=>{
+              // Switch track somehow
+              this.props.changeTrack(trackId)
+            }}
+          />
+      )
+    })
 
+    function listBuilder() {
       if(listStyle==='vertical') {
         return (
           <div className="vertical-list-container">
-            listRecommedations
+            {
+              listRecommedations
+            }
           </div>
         )
       }
       else if(listStyle==='horizontal') {
         return (
           <div className="horizontal-list-container">
-            listRecommedations
+            {
+              listRecommedations
+            }
           </div>
         )
       }
     }
 
     return (
-      <div className="recommender-container">
-        <div className="recommeder-title">
-          <h3>Recommender</h3>
-        </div>
-
+      <PlayerContext.Consumer>
         {
-          this.state.loadedRecommendationList ? (
-            listBuilder()
-          ) : (
-            <Loading />
+          playerContext => (
+            <div className="recommender-container">
+              <div className="recommeder-title">
+                <h3>{ this.state.recommendationsTitle }</h3>
+              </div>
+
+              {
+                this.state.loadedRecommendationList ? (
+                  listBuilder()
+                ) : (
+                  <Loading 
+                      timeout={ 2500 }
+                    />
+                )
+              }
+            </div>
           )
         }
-      </div>
+      </PlayerContext.Consumer>
     )
   }
 }

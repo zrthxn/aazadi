@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import * as ui from '@aazadi/ui-kit'
 import './Radio.scss'
 
+import { PlayerContextProvider } from '@aazadi/components/radio'
+
 // Pages
 import Home from './pages/Home'
 import About from './pages/About'
@@ -29,27 +31,29 @@ export default class Radio extends Component {
 
   render() {
     return (
-      <div className="main">
-        <Header/>
+      <PlayerContextProvider>
+        <div className="main">
+          <Header/>
 
-        <div className="content">
-          <Router>
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              
-              <Route exact path="/about" component={About}/>
-              
-              <Route exact path="/episodes" component={Episodes}/>
+          <div className="content">
+            <Router>
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                
+                <Route exact path="/about" component={About}/>
+                
+                <Route exact path="/episodes" component={Episodes}/>
 
-              <Route exact path="/subscribe" component={Subscription}/>
-            </Switch>
-          </Router>
+                <Route exact path="/subscribe" component={Subscription}/>
+              </Switch>
+            </Router>
+          </div>
+
+          <div className="player-popup">
+            {/* <Player playTrackId="0x0000"/> */}
+          </div>
         </div>
-
-        <div className="player-popup">
-          <Player playTrackId="0x0000"/>
-        </div>
-      </div>
+      </PlayerContextProvider>
     )
   }
 }
