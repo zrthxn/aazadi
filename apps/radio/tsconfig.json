@@ -7,5 +7,14 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "types": ["node", "jest"]
+  },
+  "paths": {
+    "@aazadi/ui-kit": ["libs/ui-kit/src/index.ts"],
+    "@aazadi/util": ["libs/util/src/index.ts"],
+    "@aazadi/features": ["libs/features/src/index.ts"],
+    "@aazadi/components/radio": ["libs/components/radio/src/index.ts"],
+    "@aazadi/components/website": ["libs/components/website/src/index.ts"],
+    "@aazadi/components/store": ["libs/components/store/src/index.ts"],
+    "@aazadi/interfaces": ["libs/interfaces/src/index.ts"]
   }
 }

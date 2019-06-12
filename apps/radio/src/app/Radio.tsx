@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
+import * as ui from '@aazadi/ui-kit'
+import './Radio.scss'
+
 // Pages
 import Home from './pages/Home'
 import About from './pages/About'
 import Episodes from './pages/Episodes'
-import Subscribe from './pages/Subscribe'
+import Subscription from './pages/Subscription'
 
 // Components
-import Header from './components/Header'
-import Player from './components/Player'
-
-import './Global.scss'
+import { Header } from '@aazadi/components/radio'
+import { Player } from '@aazadi/components/radio'
 
 export default class Radio extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ export default class Radio extends Component {
               
               <Route exact path="/episodes" component={Episodes}/>
 
-              <Route exact path="/subscribe" component={Subscribe}/>
+              <Route exact path="/subscribe" component={Subscription}/>
             </Switch>
           </Router>
         </div>

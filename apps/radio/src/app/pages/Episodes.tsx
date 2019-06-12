@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import '../Global.scss'
+import '../Radio.scss'
 
 export default class Episodes extends Component {
   render() {

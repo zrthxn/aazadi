@@ -31,6 +31,27 @@
     },
     "broadcaster": {
       "tags": ["backend"]
+    },
+    "ui-kit": {
+      "tags": ["ui"]
+    },
+    "util": {
+      "tags": ["utilities"]
+    },
+    "features": {
+      "tags": ["features"]
+    },
+    "components-radio": {
+      "tags": ["components-radio"]
+    },
+    "components-website": {
+      "tags": ["components-website"]
+    },
+    "components-store": {
+      "tags": ["components-store"]
+    },
+    "interfaces": {
+      "tags": ["interfaces"]
     }
   }
 }

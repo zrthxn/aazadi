@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import crypto from 'crypto'
 
 // Styles
-import '../static/scss/Home.scss'
-import '../Global.scss'
+import '../../assets/scss/Home.scss'
+import '../Radio.scss'
 
 // Components
-import Recommender from '../components/Recommender'
+import { Recommender } from '@aazadi/components/radio'
 
 export default class Home extends Component {
   state = { }
@@ -31,6 +31,7 @@ export default class Home extends Component {
                 caller: Home
               }}
               listType={ 'scroll' }
+              listStyle={ 'vertical' }
               omitTracks={ null }
             />
         </div>        
