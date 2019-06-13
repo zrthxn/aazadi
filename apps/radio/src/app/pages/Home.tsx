@@ -32,6 +32,7 @@ export default class Home extends Component {
 
               <div className="recommender-container">
                 <Recommender 
+                    title={ 'Recommender' }
                     context={{
                       contextType: 'home',
                       playingTrackId: '0x0000',
@@ -40,9 +41,8 @@ export default class Home extends Component {
                     listType={ 'scroll' }
                     listStyle={ 'vertical' }
                     omitTracks={ null }
-                    changeTrack={(trackId)=>{
-                      // Change track
-                      playerContext.changeTrack(trackId)
+                    playTrack={(trackId, availableProps)=>{
+                      playerContext.actions.playTrack(trackId, availableProps)
                     }}
                   />
               </div>        

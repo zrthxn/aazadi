@@ -8,6 +8,7 @@ import Loading from '../loading/Loading'
 import PlayerContext from '../player-context/PlayerContext';
 
 export interface RecommenderProps {
+  title: string,
   context: {
     contextType: string,
     playingTrackId: string,
@@ -16,13 +17,12 @@ export interface RecommenderProps {
   listType: string,
   listStyle: string,
   omitTracks: object,
-  changeTrack: Function
+  playTrack: Function
 }
 
 export class Recommender extends Component<RecommenderProps> {
   state = {
     contextual: false,
-    recommendationsTitle: 'Recommender',
     contextState: {
       context: {
         contextType: 'none',
@@ -36,12 +36,6 @@ export class Recommender extends Component<RecommenderProps> {
     loadedRecommendationList: true,
     recommendations: [
       // From the DB
-      {
-        title: 'Episode 1',
-        subtitle: 'Lets go',
-        rating: 10000,
-        trackId: 'ABCDEF'
-      }
     ]
   }
 
@@ -66,18 +60,40 @@ export class Recommender extends Component<RecommenderProps> {
     // 1. context
     // 2. playing track
     const { contextType } = this.state.contextState.context
-    if(contextType==='none'){
+
+    let loadedRecommendations = []
+    if(contextType==='none') {
       console.log('Top Listings')
     } else {
-      // if()
-      console.log('Relevent Tracks', this.state.contextState.context)
+      if(contextType==='home') {
+        console.log('Relevent Tracks', this.state.contextState.context)
+      }
     }
 
-    // this.setState({
-    //   recommendations: [
-        
-    //   ]
-    // })
+    loadedRecommendations.push(
+      {
+        title: 'Episode 1',
+        subtitle: 'Lets Go',
+        rating: 1000,
+        artURL: 'trackartURL',
+        trackId: '1a23fa6'
+      },
+      {
+        title: 'Episode 2',
+        subtitle: 'Lets Go AGAIN',
+        rating: 1500,
+        artURL: 'trackartURL',
+        trackId: '2b350b7'
+      }
+    )
+
+    this.setState({
+      recommendations: loadedRecommendations
+    })
+  }
+
+  loadRecommendations = async () => {
+
   }
 
   render() {
@@ -86,14 +102,19 @@ export class Recommender extends Component<RecommenderProps> {
       return (
         <TrackListItem
             key={ index }
-            title={ this.state.recommendations[index].title }
-            subtitle={ this.state.recommendations[index].subtitle }
-            rating={ this.state.recommendations[index].rating }
-            trackId={ this.state.recommendations[index].trackId }
+            title={ track.title }
+            subtitle={ track.subtitle }
+            rating={ track.rating }
+            artURL={ track.artURL }
+            trackId={ track.trackId }
             style={ listStyle }
             onSelect={(trackId)=>{
-              // Switch track somehow
-              this.props.changeTrack(trackId)
+              this.props.playTrack(trackId, {
+                title: track.title,
+                subtitle: track.subtitle,
+                rating: track.rating,
+                artURL: track.artURL
+              })
             }}
           />
       )
@@ -126,7 +147,7 @@ export class Recommender extends Component<RecommenderProps> {
           playerContext => (
             <div className="recommender-container">
               <div className="recommeder-title">
-                <h3>{ this.state.recommendationsTitle }</h3>
+                <h3>{ this.props.title }</h3>
               </div>
 
               {

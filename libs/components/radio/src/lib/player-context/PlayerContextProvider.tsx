@@ -1,30 +1,74 @@
 import React, { Component } from 'react'
 
 import PlayerContext from './PlayerContext'
+import { Player } from '../player/Player'
 
-export class PlayerContextProvider extends Component {
-  state = {
-    isPlaying: false,
-    playTrackId: '0x0000',
-    playTrack: trackId => {
-      // Play track
-      console.log('Play track')
-      console.log(trackId)
-    },
-    changeTrack: trackId => {
-      // Change track
-      console.log('Change track')
-      console.log(trackId)
-    }
+export class PlayerContextProvider extends Player {
+  playerController = (trackId, availableProps) => {
+    // TRACK PLAY CONTROLLER
+    this.setState((prevState, props)=>({
+      stateChangeRequested: true,
+      requestedState: {
+        trackId: trackId
+      }
+    }))
+
+    this.loadTrack(trackId, availableProps).then( async (track)=>{      
+      console.log('Play track', track)
+      const mediaLoaded = await this.getTrackArt()
+      
+      this.setState((prevState, props)=>({
+        isPlaying: true,
+        isPaused: false,
+        isMinimized: false,
+        mediaLoaded: mediaLoaded
+      }))
+
+      this.acknowledgeStateChange()
+    })
+  }
+
+  acknowledgeStateChange = () => {
+    this.setState((prevState, props)=>({
+      stateChangeRequested: false
+    }))
+  }
+
+  minimize = () => {
+    this.setState({
+      isMinimized: !this.state.isMinimized
+    })
+  }
+
+  close = () => {
+    this.setState({
+      isPlaying: false,
+      isPaused: true,
+      playTrack: {
+        id: null,
+        title: null,
+        subtitle: null,
+        rating: null,
+        artURL: null,
+      }
+    })
   }
 
   render() {
     return (
       <div>
-        <PlayerContext.Provider value={ this.state }>
-          {
-            this.props.children
-          }
+        <PlayerContext.Provider value={{ 
+            state: this.state,
+            actions: {
+              playTrack: this.playerController,
+              acknowledgeStateChange: this.acknowledgeStateChange,
+              minimizePlayer: this.minimize,
+              closePlayer: this.close
+            }
+          }}>
+            {
+              this.props.children
+            }
         </PlayerContext.Provider>
       </div>
     )

@@ -5,6 +5,7 @@ import * as ui from '@aazadi/ui-kit'
 import './Radio.scss'
 
 import { PlayerContextProvider } from '@aazadi/components/radio'
+import { PlayerContext } from '@aazadi/components/radio'
 
 // Pages
 import Home from './pages/Home'
@@ -50,7 +51,7 @@ export default class Radio extends Component {
           </div>
 
           <div className="player-popup">
-            {/* <Player playTrackId="0x0000"/> */}
+            <Player />    
           </div>
         </div>
       </PlayerContextProvider>

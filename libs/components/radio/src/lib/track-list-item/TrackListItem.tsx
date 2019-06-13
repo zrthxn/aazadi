@@ -6,6 +6,7 @@ export interface TrackListItemProps {
   title: string,
   subtitle: string,
   rating: number,
+  artURL: string,
   trackId: string,
   style: string,
   onSelect: Function
@@ -21,7 +22,13 @@ export class TrackListItem extends Component<TrackListItemProps> {
 
         <div className="container">
           <div className="details">
-            Details
+            <div>
+              <p>
+                <b>{ this.props.title } </b><br/>
+                { this.props.subtitle } <br/>
+                { this.props.rating }
+              </p>
+            </div>
           </div>
 
           <div className="action">
@@ -35,6 +42,7 @@ export class TrackListItem extends Component<TrackListItemProps> {
             </div>
           </div>
         </div>
+        <hr/>
       </div>
     )
   }
