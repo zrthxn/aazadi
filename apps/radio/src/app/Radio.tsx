@@ -51,7 +51,7 @@ export default class Radio extends Component {
           </div>
 
           <div className="player-popup">
-            <Player />    
+            <Player />
           </div>
         </div>
       </PlayerContextProvider>

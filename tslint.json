@@ -51,13 +51,13 @@
     "unified-signatures": true,
     "variable-name": false,
     "nx-enforce-module-boundaries": [
-      true,
+      false,
       {
         "allow": [],
         "depConstraints": [
           {
-            "sourceTag": "*",
-            "onlyDependOnLibsWithTags": ["*"]
+            "sourceTag": "radio",
+            "onlyDependOnLibsWithTags": ["api-features"]
           }
         ]
       }

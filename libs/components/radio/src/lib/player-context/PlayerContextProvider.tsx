@@ -4,6 +4,18 @@ import PlayerContext from './PlayerContext'
 import { Player } from '../player/Player'
 
 export class PlayerContextProvider extends Player {
+  play = () => {
+    console.log('PLAY')
+  }
+
+  pause = () => {
+    console.log('PAUSE')
+  }
+
+  scrub = () => {
+    console.log('SCRUB')
+  }
+
   playerController = (trackId, availableProps) => {
     // TRACK PLAY CONTROLLER
     this.setState((prevState, props)=>({
@@ -60,6 +72,9 @@ export class PlayerContextProvider extends Player {
         <PlayerContext.Provider value={{ 
             state: this.state,
             actions: {
+              play: this.play,
+              pause: this.pause,
+              scrub: this.scrub,
               playTrack: this.playerController,
               acknowledgeStateChange: this.acknowledgeStateChange,
               minimizePlayer: this.minimize,

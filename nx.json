@@ -38,20 +38,20 @@
     "util": {
       "tags": ["utilities"]
     },
-    "features": {
-      "tags": ["features"]
-    },
     "components-radio": {
-      "tags": ["components-radio"]
+      "tags": ["radio-components"]
     },
     "components-website": {
-      "tags": ["components-website"]
+      "tags": ["website-components"]
     },
     "components-store": {
-      "tags": ["components-store"]
+      "tags": ["store-components"]
     },
-    "interfaces": {
-      "tags": ["interfaces"]
+    "features-api": {
+      "tags": ["api-features"]
+    },
+    "features-shared": {
+      "tags": ["shared-features"]
     }
   }
 }

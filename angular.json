@@ -489,37 +489,6 @@
         }
       }
     },
-    "features": {
-      "projectType": "library",
-      "root": "libs/features",
-      "sourceRoot": "libs/features/src",
-      "prefix": "aazadi",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/features/tsconfig.lib.json",
-              "libs/features/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/features/jest.config.js",
-            "tsConfig": "libs/features/tsconfig.spec.json",
-            "setupFile": "libs/features/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "components-radio": {
       "projectType": "library",
       "root": "libs/components/radio",
@@ -613,18 +582,18 @@
         }
       }
     },
-    "interfaces": {
+    "features-api": {
       "projectType": "library",
-      "root": "libs/interfaces",
-      "sourceRoot": "libs/interfaces/src",
+      "root": "libs/features/api",
+      "sourceRoot": "libs/features/api/src",
       "prefix": "aazadi",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/interfaces/tsconfig.lib.json",
-              "libs/interfaces/tsconfig.spec.json"
+              "libs/features/api/tsconfig.lib.json",
+              "libs/features/api/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -632,9 +601,40 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/interfaces/jest.config.js",
-            "tsConfig": "libs/interfaces/tsconfig.spec.json",
-            "setupFile": "libs/interfaces/src/test-setup.ts"
+            "jestConfig": "libs/features/api/jest.config.js",
+            "tsConfig": "libs/features/api/tsconfig.spec.json",
+            "setupFile": "libs/features/api/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "features-shared": {
+      "projectType": "library",
+      "root": "libs/features/shared",
+      "sourceRoot": "libs/features/shared/src",
+      "prefix": "aazadi",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/features/shared/tsconfig.lib.json",
+              "libs/features/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/features/shared/jest.config.js",
+            "tsConfig": "libs/features/shared/tsconfig.spec.json",
+            "setupFile": "libs/features/shared/src/test-setup.ts"
           }
         }
       },

@@ -7,7 +7,7 @@ export const PlayerContext = React.createContext({
     isMinimized: false,
     mediaLoaded: false,
     playTrack: {
-      id: '0x0000', //this.context.state.playTrackId,
+      id: '0x0000',
       title: '',
       subtitle: '',
       rating: 0,
@@ -19,6 +19,15 @@ export const PlayerContext = React.createContext({
     }
   },
   actions: {
+    play: () => {
+      console.log('PLAY')
+    },
+    pause: () => {
+      console.log('PAUSE')
+    },
+    scrub: () => {
+      console.log('SCRUB')
+    },
     playTrack: (trackId: string, availableProps: any) => {
       console.log(trackId)
     },
