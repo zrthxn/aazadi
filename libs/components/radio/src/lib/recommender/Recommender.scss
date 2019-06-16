@@ -1,6 +1,43 @@
 $recommender-bg: #00000080;
 
-.recommender-container {
-  background-color: $recommender-bg;
-  border-radius: 1em;
+.recommender {
+  background: transparent;
+  padding: 1em;
+
+  .recommender-title {
+    padding: 1em;
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  .recommender-container {
+    position: relative;
+  }
+
+  .vertical-list-container {
+    width: 100%;
+    display: flex;
+    padding: 0.75em 0;
+    flex-flow: column;
+    background-color: $recommender-bg;
+    border-radius: 1em;
+  }
+
+  .horizontal-list-container {
+    height: fit-content;
+    margin-left: -2em;
+    margin-right: -2em;
+    padding: 0 2em;
+
+    display: flex;
+    flex-flow: row;    
+    background-color: transparent;
+    overflow: scroll;
+
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none; 
+  }
 }

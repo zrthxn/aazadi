@@ -1,47 +1,44 @@
-$player-bar-bg: #1c1c1c;
+$player-bg: #1c1c1c;
 
 .player {
-  padding: 2em;
-}
+  padding: 1em;
 
-.player-full {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
   bottom: 0;
   left: 0;
-  background-color: $player-bar-bg;
-  // animation: minimize 1s ease-in-out forwards;
-  transition: all 1s ease-in-out;
-}
 
-.player-min {
-  position: absolute;
-  width: 100%;
-  height: 15%;
-  bottom: 0;
-  left: 0;
-  background-color: $player-bar-bg;
-  // animation: minimize 1s ease-in-out forwards;
-  transition: all 1s ease-in-out;
-}
+  background-color: $player-bg;
+  overflow: scroll;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
 
-@keyframes minimize {
-  from {
-    height: 100%;
-    // top: 85%;
-  }
-  to {
-    height: 15%;
-    // top: 0;
+  transition: all 1s ease;
+  animation: minimizeAnimation 1s ease-in-out reverse backwards;
+  @keyframes minimizeAnimation {
+    from {
+      opacity: 1;
+      height: 100vh;
+    }
+    to {
+      opacity: 0;
+      height: 15vh;
+    }
   }
 }
-
-.top-controls {
-  display: flex;
-  flex-direction: row;
-  // fle
+#player-minimize-checkbox:checked ~ .player {
+  transition: all 1s ease;
+  height: 15vh;
 }
+
+#player-closed-checkbox:checked ~ .player {
+  transition: all 0.75s ease;
+  bottom: -100vh;
+}
+
+// ========================================================= //
 
 .minimize {
   display: block;
@@ -53,7 +50,7 @@ $player-bar-bg: #1c1c1c;
   span, span::before, span::after {
     display: block;
     position: relative;
-    height: 2px;
+    height: 1px;
     width: 12px;
     transition: all 0.25s ease;
     z-index: 12000;
@@ -69,24 +66,13 @@ $player-bar-bg: #1c1c1c;
     bottom: 0;
     left: 0.25em;
     transform: rotate(-45deg);
-    transition: all 1s ease-in-out;
+    transition: all 1s ease;
   }
   span::after {
     top: 0;
     right: 0.25em;
 	  transform: rotate(45deg);
-    transition: all 1s ease-in-out;
-  }
-}
-
-#player-minimize-checkbox:checked ~ .minimize {
-  span::before {
-    transform: rotate(45deg);
-    transition: all 1s ease-in-out;
-  }
-  span::after {
-	  transform: rotate(-45deg);
-    transition: all 1s ease-in-out;
+    transition: all 1s ease;
   }
 }
 
@@ -100,7 +86,7 @@ $player-bar-bg: #1c1c1c;
   span, span::before, span::after {
     display: block;
     position: relative;
-    height: 2px;
+    height: 1px;
     width: 25px;
     transition: all 0.25s ease;
     z-index: 12000;

@@ -19,10 +19,7 @@ export const PlayerContext = React.createContext({
     }
   },
   actions: {
-    play: () => {
-      console.log('PLAY')
-    },
-    pause: () => {
+    playPause: () => {
       console.log('PAUSE')
     },
     scrub: () => {

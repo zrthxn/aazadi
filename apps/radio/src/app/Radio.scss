@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap:100,200,300,400,500,600,700,800,900');
 
-$white: #fff;
-$home-bg: linear-gradient(#000,#dd0000);
+$radio-bg: linear-gradient(#000,#dd0000);
 
 * {
   box-sizing: border-box;
@@ -16,13 +15,21 @@ h1 {
 
 body {
   margin: 0;
-  color: $white;
+  color: #fff;
+  background: $radio-bg;
   text-align: center;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
-.main {
-  width: 100vw;
-  height: 100vh;
+.Radio {
   padding: 1em;
-  background: $home-bg;
+  padding-bottom: 15vh;
+}
+@media(min-width: 600px) {
+  .Radio {
+    margin: auto;
+    max-width: 50%;
+  }
 }

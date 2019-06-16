@@ -33,7 +33,7 @@ export default class Radio extends Component {
   render() {
     return (
       <PlayerContextProvider>
-        <div className="main">
+        <div className="Radio">
           <Header/>
 
           <div className="content">

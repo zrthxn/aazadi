@@ -4,11 +4,10 @@ import PlayerContext from './PlayerContext'
 import { Player } from '../player/Player'
 
 export class PlayerContextProvider extends Player {
-  play = () => {
-    console.log('PLAY')
-  }
-
-  pause = () => {
+  playPause = () => {
+    this.setState((prevState, props)=>({
+      isPaused: !this.state.isPaused
+    }))
     console.log('PAUSE')
   }
 
@@ -32,7 +31,7 @@ export class PlayerContextProvider extends Player {
       this.setState((prevState, props)=>({
         isPlaying: true,
         isPaused: false,
-        isMinimized: false,
+        isMinimized: this.state.isPlaying ? (this.state.isMinimized ? true : false ) : false,
         mediaLoaded: mediaLoaded
       }))
 
@@ -53,17 +52,19 @@ export class PlayerContextProvider extends Player {
   }
 
   close = () => {
-    this.setState({
-      isPlaying: false,
-      isPaused: true,
-      playTrack: {
-        id: null,
-        title: null,
-        subtitle: null,
-        rating: null,
-        artURL: null,
-      }
-    })
+    setTimeout(()=>{
+      this.setState({
+        isPlaying: false,
+        isPaused: true,
+        playTrack: {
+          id: null,
+          title: null,
+          subtitle: null,
+          rating: null,
+          artURL: null,
+        }
+      })
+    }, 1000)
   }
 
   render() {
@@ -72,8 +73,7 @@ export class PlayerContextProvider extends Player {
         <PlayerContext.Provider value={{ 
             state: this.state,
             actions: {
-              play: this.play,
-              pause: this.pause,
+              playPause: this.playPause,
               scrub: this.scrub,
               playTrack: this.playerController,
               acknowledgeStateChange: this.acknowledgeStateChange,

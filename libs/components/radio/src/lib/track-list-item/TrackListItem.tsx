@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import * as ui from '@aazadi/ui-kit'
 import "./TrackListItem.scss";
 
 export interface TrackListItemProps {
@@ -13,25 +14,23 @@ export interface TrackListItemProps {
 }
 
 export class TrackListItem extends Component<TrackListItemProps> {
-  render() {
+  verticalTrackListItem = () => {
     return (
-      <div className="track-list-item">
+      <div className="v-track-list-item">
         <div className="track-art">
           <img src="" alt=""/>
         </div>
 
-        <div className="container">
-          <div className="details">
-            <div>
-              <p>
-                <b>{ this.props.title } </b><br/>
-                { this.props.subtitle } <br/>
-                { this.props.rating }
-              </p>
-            </div>
+        <div className="details">
+          <div className="container">
+            <p className="title">{ this.props.title }</p>
+            <p className="subtitle">{ this.props.subtitle }</p>
+            <p className="rating">{ this.props.rating } Plays</p>
           </div>
+        </div>
 
-          <div className="action">
+        <div className="action">
+          <div className="container">
             <div className="track-play">
               <button className="track-play-button" onClick={()=>{
                   this.props.onSelect(this.props.trackId)
@@ -40,9 +39,45 @@ export class TrackListItem extends Component<TrackListItemProps> {
                   Play
               </button>
             </div>
+          </div>  
+        </div>
+      </div>
+    )
+  }
+
+  horizontalTrackListItem = () => {
+    return (
+      <div className="h-track-list-item">
+        <div className="track-art">
+          <img src="" alt=""/>
+        </div>
+
+        <div className="details">
+          <div className="container">
+            <p className="title">{ this.props.title }</p>
+            <p className="subtitle">{ this.props.subtitle }</p>
           </div>
         </div>
-        <hr/>
+
+        <div className="action" onClick={()=>{ this.props.onSelect(this.props.trackId) }} />
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        {
+          this.props.style==='vertical' ? (
+            this.verticalTrackListItem()
+          ) : (
+            this.props.style==='horizontal' ? (
+              this.horizontalTrackListItem()
+            ) : (
+              <div></div>
+            )
+          )
+        }
       </div>
     )
   }

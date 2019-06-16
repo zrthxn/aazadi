@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-// import '../Global.scss'
+import * as ui from '@aazadi/ui-kit'
 import './Recommender.scss'
 
 import TrackListItem from '../track-list-item/TrackListItem'
@@ -84,6 +84,20 @@ export class Recommender extends Component<RecommenderProps> {
         rating: 1500,
         artURL: 'trackartURL',
         trackId: '2b350b7'
+      },
+      {
+        title: 'Episode 3',
+        subtitle: 'Lets Go AGAIN',
+        rating: 1500,
+        artURL: 'trackartURL',
+        trackId: '3c461c8'
+      },
+      {
+        title: 'Episode 4',
+        subtitle: 'Lets Go AGAIN',
+        rating: 1500,
+        artURL: 'trackartURL',
+        trackId: '4d572d9'
       }
     )
 
@@ -145,20 +159,22 @@ export class Recommender extends Component<RecommenderProps> {
       <PlayerContext.Consumer>
         {
           playerContext => (
-            <div className="recommender-container">
-              <div className="recommeder-title">
-                <h3>{ this.props.title }</h3>
+            <div className="recommender">
+              <div className="recommender-title">
+                <p>{ this.props.title }</p>
               </div>
 
-              {
-                this.state.loadedRecommendationList ? (
-                  listBuilder()
-                ) : (
-                  <Loading 
-                      timeout={ 2500 }
-                    />
-                )
-              }
+              <div className="recommender-container">
+                {
+                  this.state.loadedRecommendationList ? (
+                    listBuilder()
+                  ) : (
+                    <Loading 
+                        timeout={ 2500 }
+                      />
+                  )
+                }
+              </div>
             </div>
           )
         }

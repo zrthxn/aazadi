@@ -1,0 +1,61 @@
+.player-min {
+  display: grid;
+  grid-template-rows: 3.5em;
+  grid-template-columns: 3.5em 3fr 1fr;
+  grid-gap: 1em;
+
+  margin: auto;
+  padding: 0.25em 1em;
+
+  .minimize {
+    position: absolute;
+    width: 75%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .min-track-art {
+    grid-row: 1/2;
+    grid-column: 1/2;
+
+    // REMOVE
+    background-color: #fff;
+
+    height: 100%;
+    width: auto;
+  }
+
+  .min-playTrack {
+    grid-row: 1/2;
+    grid-column: 2/3;
+
+    p {
+      text-align: left;
+    }
+  
+    .min-details {
+      grid-row: 1/2;
+      grid-column: 2/3;
+      padding: 0.5em;
+      overflow: hidden;
+  
+      p {
+        font-size: 0.875em;
+        text-align: left;
+        margin: 0;
+      }
+  
+      .title {
+        font-size: 1em;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .close {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    margin: auto;
+  }
+}

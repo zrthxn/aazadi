@@ -32,7 +32,22 @@ export default class Home extends Component {
 
               <div className="recommender-container">
                 <Recommender 
-                    title={ 'Recommender' }
+                  title={ 'Horizontal Recommender' }
+                  context={{
+                    contextType: 'home',
+                    playingTrackId: '0x0000',
+                    caller: Home
+                  }}
+                  listType={ 'scroll' }
+                  listStyle={ 'horizontal' }
+                  omitTracks={ null }
+                  playTrack={(trackId, availableProps)=>{
+                    playerContext.actions.playTrack(trackId, availableProps)
+                  }}
+                />
+
+                <Recommender 
+                    title={ 'Vertical Recommender' }
                     context={{
                       contextType: 'home',
                       playingTrackId: '0x0000',

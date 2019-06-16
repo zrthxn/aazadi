@@ -1,0 +1,55 @@
+.player-full {
+  display: flex;
+  flex-flow: column;
+
+  .header {
+    display: flex;
+    flex-flow: row;
+
+    padding: 1em 1.5em;
+
+    .minimize {
+      float: left;
+      margin: auto;
+      margin-left: 0;
+    }
+
+    .close {
+      float: right;
+      margin: auto;
+      margin-right: 0;
+    }
+  }
+}
+
+.playTrack {
+  .details {
+    padding: 1em;
+
+    p {
+      margin: 0.25em;
+      font-size: 1.125em;
+    }
+
+    .title {
+      font-size: 1.25em;
+      font-weight: 600;
+    }
+  }
+
+  .track-art {
+    .container {
+      height: 12em;
+      width: 12em;
+      margin: auto;
+
+      background-color: #fff;
+
+      overflow: hidden;
+      
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+    }
+  }
+}

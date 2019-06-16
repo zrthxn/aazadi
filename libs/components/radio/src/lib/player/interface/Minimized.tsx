@@ -1,26 +1,31 @@
 import React from 'react'
 
+import '../styles/Minimized.scss'
+
 export function MinimizedInterface(context) {
   return(
     // MNIMIZED PLAYER
     <div className="player-min">
-      <p className="playTrack-name">{ context.state.playTrack.title }</p>
-      <div className="playTrack">
-        <div className="playTrack-details">
-        </div>
+      <label className="minimize" htmlFor="player-minimize-checkbox"></label>
 
-        <div className="playTrack-art">
-          <div className="playTrack-art-container">
-            {
-              context.state.mediaLoaded ? (
-                <img className="playTrack-art-image" src="" alt=""/>
-              ) : (
-                <img className="loading-animation" src="" alt=""/>
-              )
-            }
-          </div>
+      <div className="min-playTrack">
+        <div className="min-details">
+          <p className="title">{ context.state.playTrack.title }</p>
+          <p className="subtitle">{ context.state.playTrack.subtitle }</p>
         </div>
       </div>
+
+      <div className="min-track-art">
+        {
+          context.state.mediaLoaded ? (
+            <img className="playTrack-art-image" src="" alt=""/>
+          ) : (
+            <img className="loading-animation" src="" alt=""/>
+          )
+        }
+      </div>
+
+      <label className="close" htmlFor="player-closed-checkbox"><span></span></label>
     </div>
   )
 }
