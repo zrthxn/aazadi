@@ -1,6 +1,7 @@
 import React from 'react'
 
 import '../styles/FullScreen.scss'
+import * as ui from '@aazadi/ui-kit'
 
 import Recommender from '../../recommender/Recommender'
 import { Controls } from './Controls'
@@ -47,7 +48,7 @@ export function FullScreenInterface(context) {
         }}
         listType={ 'scroll' }
         listStyle={ 'vertical' }
-        omitTracks={ null }
+        omitTracks={[ context.state.playTrack.id ]}
         playTrack={(trackId, availableProps)=>{
           context.actions.playTrack(trackId, availableProps)
         }}

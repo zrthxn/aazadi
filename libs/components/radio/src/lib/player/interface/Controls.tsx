@@ -8,9 +8,17 @@ export function Controls(context) {
     <div className="controls">
       <button className="skip-back">-15s</button>
       
-      <button className="previous">{'|<'}</button>
-      <button className="play-pause" onClick={ context.actions.playPause }>||</button>
-      <button className="next">{'>|'}</button>
+      <button className="prev">
+        { ui.assets.buttons.prev() }
+      </button>
+      
+      <button className="play-pause" onClick={ context.actions.playPause }>
+        { context.state.isPaused ? ui.assets.buttons.play() : ui.assets.buttons.pause() }
+      </button>
+      
+      <button className="next">
+        { ui.assets.buttons.next() }
+      </button>
 
       <button className="skip-fwd">+15s</button>
     </div>

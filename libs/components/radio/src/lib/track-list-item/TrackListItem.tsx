@@ -35,8 +35,7 @@ export class TrackListItem extends Component<TrackListItemProps> {
               <button className="track-play-button" onClick={()=>{
                   this.props.onSelect(this.props.trackId)
                 }}>
-                  <img src="" alt=""/>
-                  Play
+                  { ui.assets.buttons.play() }
               </button>
             </div>
           </div>  

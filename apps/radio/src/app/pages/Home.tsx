@@ -40,7 +40,7 @@ export default class Home extends Component {
                   }}
                   listType={ 'scroll' }
                   listStyle={ 'horizontal' }
-                  omitTracks={ null }
+                  omitTracks={[]}
                   playTrack={(trackId, availableProps)=>{
                     playerContext.actions.playTrack(trackId, availableProps)
                   }}
@@ -55,7 +55,7 @@ export default class Home extends Component {
                     }}
                     listType={ 'scroll' }
                     listStyle={ 'vertical' }
-                    omitTracks={ null }
+                    omitTracks={[]}
                     playTrack={(trackId, availableProps)=>{
                       playerContext.actions.playTrack(trackId, availableProps)
                     }}

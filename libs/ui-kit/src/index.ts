@@ -1,2 +1,2 @@
-export * from "./lib/ui-kit.module";
-// export * from "./lib/common/Global.scss"
+export * from "./lib/ui-kit.module"
+export * from './lib/assets/assets'

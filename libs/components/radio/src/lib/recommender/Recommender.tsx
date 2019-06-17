@@ -100,6 +100,11 @@ export class Recommender extends Component<RecommenderProps> {
         trackId: '4d572d9'
       }
     )
+    
+    // for(let i=0; i<this.props.omitTracks.length; i++) {
+    //   // loadedRecommendations.splice(loadedRecommendations.indexOf(this.props.omitTracks[i]), 1)
+    //   delete loadedRecommendations[loadedRecommendations.indexOf(this.props.omitTracks[i])]
+    // }
 
     this.setState({
       recommendations: loadedRecommendations

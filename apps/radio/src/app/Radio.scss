@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap:100,200,300,400,500,600,700,800,900');
 
 $radio-bg: linear-gradient(#000,#dd0000);
 
 * {
   box-sizing: border-box;
-  font-family: Lato, sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-rendering: geometricPrecision;
   image-rendering: crisp-edges;
 }
@@ -18,6 +18,10 @@ body {
   color: #fff;
   background: $radio-bg;
   text-align: center;
+
+  button:focus {
+    outline: none;
+  }
 }
 ::-webkit-scrollbar {
   display: none;

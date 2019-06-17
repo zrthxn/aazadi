@@ -1,8 +1,33 @@
 .controls {
+  display: inline;
+  align-content: center;
+
   button {
     border: none;
     background: transparent;
     color: #fff;
     font-size: 1.25em;
+    margin: auto;
+  }
+
+  .play-pause {  
+    position: relative;
+  
+    border: none;
+    border-radius: 100%;
+    padding: 1em;
+    background-color: #fff;
+  
+    width: 3.5em;
+    height: 3.5em;
+
+    img {
+      width: 1.5em;
+      height: auto;
+    }
+
+    .play-btn {
+      margin-left: 0.125em;
+    }
   }
 }

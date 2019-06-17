@@ -1,4 +1,5 @@
 $player-bg: #1c1c1c;
+$minimized-player-height: 6em;
 
 .player {
   padding: 1em;
@@ -24,13 +25,13 @@ $player-bg: #1c1c1c;
     }
     to {
       opacity: 0;
-      height: 15vh;
+      height: $minimized-player-height;
     }
   }
 }
 #player-minimize-checkbox:checked ~ .player {
   transition: all 1s ease;
-  height: 15vh;
+  height: $minimized-player-height;
 }
 
 #player-closed-checkbox:checked ~ .player {
