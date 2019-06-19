@@ -6,8 +6,8 @@ $minimized-player-height: 6em;
   z-index: 12000;
 
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   bottom: 0;
   left: 0;
 
@@ -22,7 +22,7 @@ $minimized-player-height: 6em;
   @keyframes minimizeAnimation {
     from {
       opacity: 1;
-      height: 100vh;
+      height: 100%;
     }
     to {
       opacity: 0;
