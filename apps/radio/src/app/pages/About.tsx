@@ -5,7 +5,7 @@ import '../Radio.scss'
 export default class About extends Component {
   render() {
     return (
-      <div>
+      <div className="about">
         <h1>About</h1>
       </div>
     )

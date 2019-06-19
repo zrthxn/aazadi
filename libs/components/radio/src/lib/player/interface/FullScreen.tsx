@@ -6,10 +6,10 @@ import * as ui from '@aazadi/ui-kit'
 import Recommender from '../../recommender/Recommender'
 import { Controls } from './Controls'
 import { Scrub } from './Scrub'
+import { version } from '@aazadi/util'
 
 export function FullScreenInterface(context) {
   return(
-    // FULL PLAYER
     <div className="player-full">
       <div className="header">
         <label className="minimize" htmlFor="player-minimize-checkbox"><span></span></label>
@@ -35,24 +35,30 @@ export function FullScreenInterface(context) {
         </div>
       </div>
 
-      { Scrub(context) }
-
-      { Controls(context) }
-
-      <Recommender 
-        title={ 'Listen Next' }
+      <div className="scrub-container">
+        {
+          Scrub(context) 
+        }          
+      </div>
+      
+      <div className="controls-container">
+        { 
+          Controls(context) 
+        }
+      </div>
+      
+      <Recommender title="Listen Next"
         context={{
           contextType: 'track',
           playingTrackId: context.state.playTrack.id,
           caller: FullScreenInterface
         }}
-        listType={ 'scroll' }
-        listStyle={ 'vertical' }
+        listType={ 'scroll' } listStyle={ 'vertical' } limit={ 10 }
         omitTracks={[ context.state.playTrack.id ]}
-        playTrack={(trackId, availableProps)=>{
-          context.actions.playTrack(trackId, availableProps)
-        }}
+        action={ context.actions.playTrack }
       />
+
+      <p className="version">v{ version }</p>
     </div>
   )
 }

@@ -25,40 +25,29 @@ export default class Home extends Component {
         {
           playerContext => (
             <div className="home-page">
-              <div className="hero-title">
-                <h1>Radio</h1>
-                <h2>Aazadi</h2>
-              </div>
+              <div>
+                {
+                  ui.assets.elements.radioTitle()
+                }
+              </div>                
 
               <div className="recommender-container">
-                <Recommender 
-                  title={ 'Horizontal Recommender' }
+                <Recommender title="Top Episodes"
                   context={{
-                    contextType: 'home',
-                    playingTrackId: '0x0000',
+                    contextType: 'top',
                     caller: Home
                   }}
-                  listType={ 'scroll' }
-                  listStyle={ 'horizontal' }
-                  omitTracks={[]}
-                  playTrack={(trackId, availableProps)=>{
-                    playerContext.actions.playTrack(trackId, availableProps)
-                  }}
+                  listType={ 'scroll' } listStyle={ 'horizontal' } limit={ 4 }
+                  action={ playerContext.actions.playTrack }
                 />
 
-                <Recommender 
-                    title={ 'Vertical Recommender' }
+                <Recommender title="New Releases"
                     context={{
-                      contextType: 'home',
-                      playingTrackId: '0x0000',
+                      contextType: 'new',
                       caller: Home
                     }}
-                    listType={ 'scroll' }
-                    listStyle={ 'vertical' }
-                    omitTracks={[]}
-                    playTrack={(trackId, availableProps)=>{
-                      playerContext.actions.playTrack(trackId, availableProps)
-                    }}
+                    listType={ 'scroll' } listStyle={ 'vertical' } limit={ 10 }
+                    action={ playerContext.actions.playTrack }
                   />
               </div>        
             </div>

@@ -4,6 +4,7 @@
 // const prev = require('./buttons/Prev.svg') as any
 
 import { play, pause, next, prev } from './buttons/buttons'
+import { radioTitle } from './elements/radioTitle'
 
 export const assets = {
   buttons: {
@@ -11,5 +12,8 @@ export const assets = {
     pause,
     next,
     prev
+  },
+  elements: {
+    radioTitle
   }
 }

@@ -19,8 +19,7 @@ export default class Subscription extends Component {
     return (
       <div className="subscribe-page">
         <h1>Subscribe</h1>
-
-        <Subscribe />
+        <Subscribe/>
       </div>
     )
   }

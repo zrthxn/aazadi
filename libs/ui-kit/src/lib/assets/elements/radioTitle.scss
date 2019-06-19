@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Rockness';
+  src: url('../fonts/Rockness.otf') format('opentype');
+}
+
+#title-main {
+  font-family: 'Rockness', sans-serif;
+  margin: 2em;
+
+  .title-main-radio, .title-main-aazadi {
+    font-weight: 300;
+    margin: 0;
+  }
+
+  .title-main-radio {
+    font-size: 3em;
+    margin-left: 0.75em;
+    margin-bottom: -1em;
+  } 
+  .title-main-aazadi {
+    font-size: 6em;
+  }
+}

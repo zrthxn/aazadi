@@ -3,6 +3,7 @@ $minimized-player-height: 6em;
 
 .player {
   padding: 1em;
+  z-index: 12000;
 
   position: fixed;
   width: 100vw;
@@ -16,8 +17,8 @@ $minimized-player-height: 6em;
   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
 
-  transition: all 1s ease;
-  animation: minimizeAnimation 1s ease-in-out reverse backwards;
+  transition: all 0.75s ease;
+  animation: minimizeAnimation 0.75s ease-in-out reverse backwards;
   @keyframes minimizeAnimation {
     from {
       opacity: 1;
@@ -30,7 +31,7 @@ $minimized-player-height: 6em;
   }
 }
 #player-minimize-checkbox:checked ~ .player {
-  transition: all 1s ease;
+  transition: all 0.75s ease;
   height: $minimized-player-height;
 }
 

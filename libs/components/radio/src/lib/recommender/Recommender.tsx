@@ -7,17 +7,21 @@ import TrackListItem from '../track-list-item/TrackListItem'
 import Loading from '../loading/Loading'
 import PlayerContext from '../player-context/PlayerContext';
 
+import { RecommendationService } from '@aazadi/features/api'
+
 export interface RecommenderProps {
   title: string,
   context: {
     contextType: string,
-    playingTrackId: string,
+    playingTrackId?: string,
     caller: any
   },
   listType: string,
   listStyle: string,
-  omitTracks: object,
-  playTrack: Function
+  action: Function,
+  limit: number,
+  omitTracks?: [string],
+  recommendations?: any,
 }
 
 export class Recommender extends Component<RecommenderProps> {
@@ -25,15 +29,15 @@ export class Recommender extends Component<RecommenderProps> {
     contextual: false,
     contextState: {
       context: {
-        contextType: 'none',
+        contextType: 'none', // OPTIONS : none=all / home / top / new / track / search
         playingTrackId: null,
         caller: null,
       },
-      listType: 'scroll',
-      listStyle: 'vertical',
-      omitTracks: null,
+      listType: 'scroll', // OR 'lazy'
+      listStyle: 'vertical', // OR 'horizontal'
+      omitTracks: [],
     },
-    loadedRecommendationList: true,
+    loadedRecommendationList: false,
     recommendations: [
       // From the DB
     ]
@@ -55,64 +59,35 @@ export class Recommender extends Component<RecommenderProps> {
     })
   }
 
-  componentDidMount() {    
-    // TODO: Get items from MongoDB based on
-    // 1. context
-    // 2. playing track
+  componentDidMount() {
     const { contextType } = this.state.contextState.context
 
     let loadedRecommendations = []
-    if(contextType==='none') {
-      console.log('Top Listings')
+
+    if(contextType==='search') {
+      loadedRecommendations = this.props.recommendations
     } else {
-      if(contextType==='home') {
-        console.log('Relevent Tracks', this.state.contextState.context)
-      }
+      const subscriber = RecommendationService.get({
+        contextType
+      }).subscribe(obj => {
+        loadedRecommendations.push(obj)
+        if(loadedRecommendations.length===this.props.limit) {
+          subscriber.unsubscribe()
+
+          if(this.state.contextState.omitTracks!==undefined)
+            this.state.contextState.omitTracks.forEach(omitTrackId => {
+              loadedRecommendations = loadedRecommendations.filter(
+                track => track.trackId !== omitTrackId
+              )
+            })
+
+          this.setState({
+            recommendations: loadedRecommendations,
+            loadedRecommendationList: true
+          })
+        }
+      })
     }
-
-    loadedRecommendations.push(
-      {
-        title: 'Episode 1',
-        subtitle: 'Lets Go',
-        rating: 1000,
-        artURL: 'trackartURL',
-        trackId: '1a23fa6'
-      },
-      {
-        title: 'Episode 2',
-        subtitle: 'Lets Go AGAIN',
-        rating: 1500,
-        artURL: 'trackartURL',
-        trackId: '2b350b7'
-      },
-      {
-        title: 'Episode 3',
-        subtitle: 'Lets Go AGAIN',
-        rating: 1500,
-        artURL: 'trackartURL',
-        trackId: '3c461c8'
-      },
-      {
-        title: 'Episode 4',
-        subtitle: 'Lets Go AGAIN',
-        rating: 1500,
-        artURL: 'trackartURL',
-        trackId: '4d572d9'
-      }
-    )
-    
-    // for(let i=0; i<this.props.omitTracks.length; i++) {
-    //   // loadedRecommendations.splice(loadedRecommendations.indexOf(this.props.omitTracks[i]), 1)
-    //   delete loadedRecommendations[loadedRecommendations.indexOf(this.props.omitTracks[i])]
-    // }
-
-    this.setState({
-      recommendations: loadedRecommendations
-    })
-  }
-
-  loadRecommendations = async () => {
-
   }
 
   render() {
@@ -128,7 +103,7 @@ export class Recommender extends Component<RecommenderProps> {
             trackId={ track.trackId }
             style={ listStyle }
             onSelect={(trackId)=>{
-              this.props.playTrack(trackId, {
+              this.props.action(trackId, {
                 title: track.title,
                 subtitle: track.subtitle,
                 rating: track.rating,
@@ -174,9 +149,7 @@ export class Recommender extends Component<RecommenderProps> {
                   this.state.loadedRecommendationList ? (
                     listBuilder()
                   ) : (
-                    <Loading 
-                        timeout={ 2500 }
-                      />
+                    <Loading/>
                   )
                 }
               </div>

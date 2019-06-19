@@ -28,10 +28,13 @@ export class PlayerContextProvider extends Player {
       console.log('Play track', track)
       const mediaLoaded = await this.getTrackArt()
       
+      if(document.getElementById("player-minimize-checkbox")!==null)
+        document.getElementById("player-minimize-checkbox")['checked'] = false
+
       this.setState((prevState, props)=>({
         isPlaying: true,
         isPaused: false,
-        isMinimized: this.state.isPlaying ? (this.state.isMinimized ? true : false ) : false,
+        isMinimized: false,
         mediaLoaded: mediaLoaded
       }))
 
@@ -64,7 +67,7 @@ export class PlayerContextProvider extends Player {
           artURL: null,
         }
       })
-    }, 1000)
+    }, 750)
   }
 
   render() {

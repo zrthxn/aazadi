@@ -8,8 +8,9 @@ export interface SubscribeProps {}
 export class Subscribe extends Component<SubscribeProps> {
   render() {
     return (
-      <div>
-        <h1>Welcome to subscribe component!</h1>
+      <div className="subscribe">
+        <input className="textbox" type="text" placeholder="Email"/>
+        <button className="button">Subscribe</button>
       </div>
     );
   }

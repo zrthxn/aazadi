@@ -6,7 +6,7 @@ import '../styles/Controls.scss'
 export function Controls(context) {
   return (
     <div className="controls">
-      <button className="skip-back">-15s</button>
+      {/* <button className="skip-back">-15s</button> */}
       
       <button className="prev">
         { ui.assets.buttons.prev() }
@@ -20,7 +20,7 @@ export function Controls(context) {
         { ui.assets.buttons.next() }
       </button>
 
-      <button className="skip-fwd">+15s</button>
+      {/* <button className="skip-fwd">+15s</button> */}
     </div>
   )
 }

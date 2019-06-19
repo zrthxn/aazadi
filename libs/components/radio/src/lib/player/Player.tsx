@@ -7,8 +7,7 @@ import './styles/Player.scss'
 import PlayerContext from '../player-context/PlayerContext'
 
 import { Interface } from './Interface'
-import { StreamController } from '@aazadi/features/api'
-import { PlayerController } from '@aazadi/features/api'
+import { StreamController, PlayerController } from '@aazadi/features/api'
 
 export class Player extends Component {
   state = {
@@ -80,7 +79,7 @@ export class Player extends Component {
       <PlayerContext.Consumer>
         {
           playerContext => (
-            <div>
+            <div key={ playerContext.state.playTrack.id }>
               {
                 playerContext.state.isPlaying ? (
                   Interface.playerInterfaceBuilder(playerContext)

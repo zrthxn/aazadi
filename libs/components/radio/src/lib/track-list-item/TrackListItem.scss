@@ -10,11 +10,14 @@
     grid-row: 1/2;
     grid-column: 1/2;
 
-    // REMOVE
     background-color: #fff;
 
     height: 100%;
     width: auto;
+
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
   }
 
   .details {

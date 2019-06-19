@@ -1,1 +1,1 @@
-export * from "./lib/util.module";
+export const version = require('../../../package.json').version

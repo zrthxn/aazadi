@@ -3,13 +3,27 @@ import React, { Component } from "react";
 import "./Search.scss";
 
 /* tslint:disable:no-empty-interface */
-export interface SearchProps {}
+export interface SearchProps {
+  
+}
 
 export class Search extends Component<SearchProps> {
   render() {
     return (
-      <div>
-        <h1>Welcome to search component!</h1>
+      <div className="search">
+        <input className="textbox" type="text" placeholder="Search" 
+          // onFocus={()=>{
+          //   this.setState((prevState, props)=>({
+          //     searching: true
+          //   }))
+          // }}
+          // onChange={(e)=> {
+          //   e.persist()
+          //   this.setState((prevState, props)=>({
+          //     searchQuery: e.target.value
+          //   }))
+          // }}
+        />
       </div>
     );
   }
