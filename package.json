@@ -18,7 +18,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm version major && ng build",
     "test": "ng test",
     "lint": "nx lint && ng lint",
     "e2e": "ng e2e",
