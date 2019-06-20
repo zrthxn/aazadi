@@ -32,7 +32,7 @@ export class TrackListItem extends Component<TrackListItemProps> {
         <div className="action">
           <div className="container">
             <div className="track-play">
-              <button className="track-play-button" onClick={()=>{
+              <button className="track-play-button" id="track-play-button" onClick={()=>{
                   this.props.onSelect(this.props.trackId)
                 }}>
                   { ui.assets.buttons.play() }

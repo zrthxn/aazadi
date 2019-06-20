@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap:100,200,300,400,500,600,700,800,900');
 
-$radio-bg: linear-gradient(#240000,#ff0000);
-$font: 'Raleway';
+$radio-bg: linear-gradient(#900000,#240000), 
+  url('../assets/img/scratch-texture.png') right 20% top no-repeat fixed,
+  url('../assets/img/scratch-texture-2.png') bottom right 45% no-repeat fixed;
+$font: 'Montserrat';
 
 * {
   box-sizing: border-box;
@@ -9,19 +11,17 @@ $font: 'Raleway';
   image-rendering: crisp-edges;
 }
 
-h1 {
-  // font-weight: 900;
-}
-
 body {
   margin: 0;
   color: #fff;
   background: $radio-bg;
   background-size: cover;
-  // background-attachment: fixed;
   text-align: center;
   font-family: $font, sans-serif;
   opacity: 1;
+
+  background: $radio-bg;
+  background-blend-mode: multiply;
 
   animation: revealbody 1s ease forwards;
   @keyframes revealbody {

@@ -3,9 +3,11 @@ import React from 'react'
 import '../styles/FullScreen.scss'
 import * as ui from '@aazadi/ui-kit'
 
-import Recommender from '../../recommender/Recommender'
+import { Recommender } from '../../recommender/Recommender'
+import { Loading } from '../../loading/Loading';
 import { Controls } from './Controls'
 import { Scrub } from './Scrub'
+
 import { version } from '@aazadi/util'
 
 export function FullScreenInterface(context) {
@@ -23,15 +25,18 @@ export function FullScreenInterface(context) {
         </div>
 
         <div className="track-art">
-          <div className="container">
-            {
-              context.state.mediaLoaded ? (
-                <img className="playTrack-art-image" src="" alt=""/>
-              ) : (
-                <img className="loading-animation" src="" alt=""/>
-              )
-            }
-          </div>
+          {
+            context.state.mediaLoaded!==true ? (
+              <div className="container">
+                <img className="playTrack-art-image" alt="Track Art"
+                  src={ 'https://cdn.aazadi.in/radio/_trackArt/' + context.state.playTrack.id }
+                  onLoad={ context.actions.mediaLoaded }
+                />
+              </div>
+            ) : (
+              <Loading/>
+            )
+          }
         </div>
       </div>
 

@@ -15,6 +15,12 @@ export class PlayerContextProvider extends Player {
     console.log('SCRUB')
   }
 
+  mediaLoaded = () => {
+    this.setState((prevState, props)=>({
+      mediaLoaded: true
+    }))
+  }
+
   playerController = (trackId, availableProps) => {
     // TRACK PLAY CONTROLLER
     this.setState((prevState, props)=>({
