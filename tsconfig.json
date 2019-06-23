@@ -22,7 +22,8 @@
       "@aazadi/components/website": ["libs/components/website/src/index.ts"],
       "@aazadi/components/store": ["libs/components/store/src/index.ts"],
       "@aazadi/features/api": ["libs/features/api/src/index.ts"],
-      "@aazadi/features/shared": ["libs/features/shared/src/index.ts"]
+      "@aazadi/features/shared": ["libs/features/shared/src/index.ts"],
+      "@aazadi/components/admin": ["libs/components/admin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

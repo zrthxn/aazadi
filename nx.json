@@ -52,6 +52,9 @@
     },
     "features-shared": {
       "tags": ["shared-features"]
+    },
+    "components-admin": {
+      "tags": ["lib:admin"]
     }
   }
 }

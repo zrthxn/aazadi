@@ -1,0 +1,46 @@
+.login {
+  display: flex;
+  flex-direction: column;
+}
+
+.textbox {
+  // margin: 1em;
+  margin: 1em auto;
+  width: 20em;
+  padding: 1em;
+  font-size: 0.85em;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  border: 1.5px solid #000;
+} .textbox:focus{
+  outline: none;
+  background-color: #eee;
+} .textbox[class~="error"] {
+  color: #d60000;
+  border: 1.5px solid #d60000;
+} .textbox[class~="error"]::placeholder {
+  color: #d60000;
+}
+
+.button {
+  // margin: 1em;
+  margin: 1em auto;
+  width: 10em;
+  height: 4em;
+  background-color: transparent;
+  border: 1.5px solid #000;
+  transition: all 0.25s ease;
+} .button:focus {
+  outline: none;
+} .button:active {
+  background-color: #eee;
+}
+
+.solid[class~="button"] {
+  color: #fff;
+  background-color: #000;
+  border: 1.5px solid #000;
+} .solid[class~="button"]:active {
+  background-color: #1d1d1d;
+  border: 1.5px solid #1d1d1d;
+}
