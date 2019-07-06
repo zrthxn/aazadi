@@ -3,12 +3,12 @@ import crypto from 'crypto'
 
 // Styles
 import * as ui from '@aazadi/ui-kit'
-import '../../assets/scss/Home.scss'
+import './styles/Home.scss'
 import '../Radio.scss'
 
 // Components
-import { Recommender } from '@aazadi/components/radio'
-import { PlayerContext } from '@aazadi/components/radio'
+import { Recommender } from '../components/components'
+import { PlayerContext } from '../components/components'
 
 export default class Home extends Component {
   state = {

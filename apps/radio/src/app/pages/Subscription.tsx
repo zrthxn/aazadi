@@ -4,7 +4,7 @@ import * as ui from '@aazadi/ui-kit'
 import '../Radio.scss'
 
 // Components
-import { Subscribe } from '@aazadi/components/radio'
+import { Subscribe } from '../components/components'
 
 export default class Subscription extends Component {
   state = {

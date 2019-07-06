@@ -11,50 +11,38 @@
     "website-e2e": {
       "tags": []
     },
-    "website": {
-      "tags": ["frontend"]
-    },
-    "radio": {
-      "tags": ["radio"]
-    },
     "radio-e2e": {
       "tags": []
-    },
-    "admin": {
-      "tags": ["admin"]
     },
     "admin-e2e": {
       "tags": []
     },
+    "website": {
+      "tags": ["app:website"]
+    },
+    "radio": {
+      "tags": ["app:radio"]
+    },
+    "admin": {
+      "tags": ["app:admin"]
+    },
     "server": {
-      "tags": ["backend"]
+      "tags": ["app:server"]
     },
     "broadcaster": {
-      "tags": ["backend"]
+      "tags": ["app:broadcaster"]
     },
     "ui-kit": {
-      "tags": ["ui"]
+      "tags": ["lib:ui"]
     },
     "util": {
-      "tags": ["utilities"]
-    },
-    "components-radio": {
-      "tags": ["radio-components"]
-    },
-    "components-website": {
-      "tags": ["website-components"]
-    },
-    "components-store": {
-      "tags": ["store-components"]
+      "tags": ["lib:utilities"]
     },
     "features-api": {
-      "tags": ["api-features"]
+      "tags": ["features:api"]
     },
     "features-shared": {
-      "tags": ["shared-features"]
-    },
-    "components-admin": {
-      "tags": ["lib:admin"]
+      "tags": ["features:shared"]
     }
   }
 }

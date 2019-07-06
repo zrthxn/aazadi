@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import * as ui from '@aazadi/ui-kit'
 import './Radio.scss'
 
-import { PlayerContextProvider } from '@aazadi/components/radio'
-import { PlayerContext } from '@aazadi/components/radio'
+import { PlayerContextProvider } from './components/components'
+import { PlayerContext } from './components/components'
 
 // Pages
 import Home from './pages/Home'
@@ -14,7 +14,7 @@ import Episodes from './pages/Episodes'
 import Subscription from './pages/Subscription'
 
 // Components
-import { Player } from '@aazadi/components/radio'
+import { Player } from './components/components'
 
 export default class Radio extends Component {
   constructor(props) {

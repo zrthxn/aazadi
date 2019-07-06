@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 import '../Radio.scss'
 
-import { Recommender, Search } from '@aazadi/components/radio'
-import { PlayerContext } from '@aazadi/components/radio'
+import { Recommender, Search } from '../components/components'
+import { PlayerContext } from '../components/components'
 
 export default class Episodes extends Component {
   state = {
