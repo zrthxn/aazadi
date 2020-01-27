@@ -47,7 +47,8 @@ export const RecommendationService = {
             // Cancel ongoing XHRs
           }
         }
-      })
+      }
+    )
   },
 
   search: (trackId:string) => {
